@@ -88,10 +88,15 @@ body {
 #orderContainer .panel-footer {
   text-align: center;
   font-size: 150%;
+  padding-bottom: 0;
 }
 
 #orderContainer .panel-footer .btn {
   width: 100%;
+}
+
+#totalPrice {
+  font-size: 200%;
 }
 
 /* RESPONSIVE CSS
