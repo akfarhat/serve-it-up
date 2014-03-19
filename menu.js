@@ -1,6 +1,6 @@
-menu-categories = ["appetizer","entree","side","dessert","beverage"];
+menuCategories = ["appetizer","entree","side","dessert","beverage"];
 
-menu-items = [
+menuItems = [
 	{
 		"name": "Chicken Parmesan",
 		"category": "entree",
@@ -121,4 +121,8 @@ menu-items = [
 		"nut-free": false
 	}
 ];
+
+function getMenu() {
+	return menuItems;
+}
 	
