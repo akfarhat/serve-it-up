@@ -1,4 +1,4 @@
-menuCategories = ["appetizer","entree","side","dessert","beverage"];
+menuCategories = {"appetizer":"Appetizers","entree":"Entrees","side":"Sides","dessert":"Desserts","beverage":"Beverages"};
 
 menuItems = [
 	{
@@ -124,5 +124,32 @@ menuItems = [
 
 function getMenu() {
 	return menuItems;
+}
+
+function getCategories() {
+	return menuCategories;
+}
+
+function getItem(itemName, menu) {
+	var n = menu.length;
+	for (var i=0; i < n; i++) {
+		if (menu[i].name === itemName) {
+			return menu[i];
+		}
+	}
+	return null;
+}
+
+function getCategoryItems(categoryName, menu) {
+	var n = menu.length;
+	var items = [];
+	
+	for (var i=0; i < n; i++) {
+		if (menu[i].category === categoryName) {
+			items.push(menu[i]);
+		}
+	}
+	
+	return items;
 }
 	

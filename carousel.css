@@ -115,30 +115,31 @@ body {
 -------------------------------------------------- */
 
 /* Pad the edges of the mobile views a bit */
-.marketing {
+#categoryContainer {
   padding-right: 15px;
   padding-left: 15px;
 }
 
 /* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
+#categoryContainer .col-lg-4 {
   margin-bottom: 20px;
   text-align: center;
 }
-.marketing h2 {
+#categoryContainer h2 {
   font-weight: normal;
 }
-.marketing .col-lg-4 p {
+#categoryContainer .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;
 }
 
-.marketing .btn {
-  margin-left: 5px;
-  margin-right: 5px;
-  width: 200px;
-  height: 200px;
+#categoryContainer .btn {
+  height: 140px;
   font-size: 200%;
+}
+
+#categoryContainer .category {
+  text-align: center;
 }
 
 
@@ -148,7 +149,7 @@ body {
 @media (min-width: 768px) {
 
   /* Remove the edge padding needed for mobile */
-  .marketing {
+  #categoryContainer {
     padding-right: 0;
     padding-left: 0;
   }

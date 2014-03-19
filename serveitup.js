@@ -1,27 +1,4 @@
 
-function getItem(itemName, menu) {
-	var n = menu.length;
-	for (var i=0; i < n; i++) {
-		if (menu[i].name === itemName) {
-			return menu[i];
-		}
-	}
-	return null;
-}
-
-function getCategoryItems(categoryName, menu) {
-	var n = menu.length;
-	var items = [];
-	
-	for (var i=0; i < n; i++) {
-		if (menu[i].category === categoryName) {
-			items.push(menu[i]);
-		}
-	}
-	
-	return items;
-}
-
 function formatMoney(money) {
 	if((typeof money == "string" || money instanceof String)) {
 		if(money.charAt(0) == '$') {
@@ -38,7 +15,7 @@ function formatMoney(money) {
 
 $(document).ready(function() {
 	var menu = getMenu();
-	var category = "entree"
+	var category = sessionStorage.getItem("category");
 	var categoryItems = getCategoryItems(category, menu);
 	var menuItemContainer = $('#menuItemContainer > .list-group').empty();
 	
