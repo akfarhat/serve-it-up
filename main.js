@@ -10,8 +10,8 @@ $(document).ready(function() {
 			if(first) {
 				var categoryHTML = '' + 
 					'<div class="col-md-2 col-md-offset-1 category">' +
-					'   <a href="order.html">' +
-					'		<button id="' + buttonID + '" class="btn btn-default btn-block">' +
+					'   <a id="' + buttonID + '" href="order.html">' +
+					'		<button class="btn btn-default btn-block">' +
 								categories[key] 
 					'		</button>' +
 					'	</a>' + 
@@ -22,8 +22,8 @@ $(document).ready(function() {
 			else {
 				var categoryHTML = '' + 
 					'<div class="col-md-2 category">' +
-					'   <a href="order.html">' +
-					'		<button id="' + buttonID + '" class="btn btn-default btn-block">' +
+					'   <a id="' + buttonID + '" href="order.html">' +
+					'		<button class="btn btn-default btn-block">' +
 								categories[key]
 					'		</button>' +
 					'	</a>' +
@@ -32,11 +32,11 @@ $(document).ready(function() {
 
 			categoryContainer.append($.parseHTML(categoryHTML));
 			
-			$('#' + buttonID).on('click', function (e) {
-			    return function () {
-					sessionStorage.setItem("category", key);
+			$('#' + buttonID).on('click', function (k) {
+			    return function (e) {
+					sessionStorage.setItem("category", k);
 				};	
-			});
+			}(key));
 		}
 	}
 	

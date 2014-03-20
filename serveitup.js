@@ -31,8 +31,21 @@ $(document).ready(function() {
 	//for each item in the category, add a list-group-item div containing the
 	//menu item information to the menuItemContainer
 	var n = categoryItems.length;
+	
+	//if there are no items in the category
+	if(n === 0) {
+		var noItemsHTML = '' +
+			'<div class="row list-group-item list-group-item-danger">' +
+			'	<div class="col-md-12">' +
+			'		<span class="glyphicon glyphicon-info-sign"></span> No items available in this category.' +
+			'	</div>' +
+			'</div>';
+			
+		menuItemContainer.append($.parseHTML(noItemsHTML));
+	}
+	
 	for (var i=0; i < n; i++) {
-		var menuItem = '' +
+		var menuItemHTML = '' +
 			'<div class="row list-group-item">' +
 			'	<div class="col-md-10">' +
 			'		<div class="row">' +
@@ -48,7 +61,7 @@ $(document).ready(function() {
 			'	</div>' +
 			'</div>';
 			
-		menuItemContainer.append($.parseHTML(menuItem));
+		menuItemContainer.append($.parseHTML(menuItemHTML));
 	}
 });
 
