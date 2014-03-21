@@ -13,7 +13,63 @@ function formatMoney(money) {
 	}
 }
 
+function update() {
+	var menu = getMenu();
+	var currentOrderContainer = $('#orderContainer ul').empty();
+	var currentOrderJSON = sessionStorage.getItem("currentOrder");
+	var total = 0;
+	
+	if (currentOrderJSON) {
+		var currentOrder = JSON.parse(currentOrderJSON);
+		
+		for (var i = 0; i < currentOrder.length; i++) {
+			var menuItem = getItem(currentOrder[i], menu);
+			var removeButtonID = 'removeButton' + i;
+			
+			var orderItemHTML = '' +
+				'<li class="list-group-item">' +
+				    '<div class="row">' +
+					 '<div class="col-md-6">' + menuItem.name + '</div>' +
+					  '<div class="col-md-4">' + formatMoney(menuItem.price) + '</div>' +
+					  '<div class="col-md-2">' +
+					    '<button type="button" id="' + removeButtonID + '" class="btn">' +
+						  '<span class="glyphicon glyphicon-remove"></span>' +
+						'</button>' +
+					  '</div>' +
+					'</div>' +
+				  '</li>';
+			
+			var orderItem = $.parseHTML(orderItemHTML);
+			currentOrderContainer.append(orderItem);
+			total += menuItem.price;
+			
+			$('#' + removeButtonID).on('click', function (index) {
+			    return function (e) {
+					var currentOrderJSON = sessionStorage.getItem("currentOrder");
+					var currentOrder = [];
+					
+					//if there are already items in the order then get them
+					if(currentOrderJSON){
+						currentOrder = JSON.parse(currentOrderJSON);
+						currentOrder.splice(index, 1);
+						currentOrderJSON = JSON.stringify(currentOrder);
+				
+						sessionStorage.setItem("currentOrder", currentOrderJSON);
+						update();
+					}
+				};	
+			}(i));
+		}
+	}
+	
+	$('#totalPrice').html(formatMoney(total));
+}
+
 $(document).ready(function() {
+	update();
+	
+	$('.breadcrumb button').on('click', function () { sessionStorage.clear(); update();});
+	
 	var menu = getMenu();
 	var category = sessionStorage.getItem("category");
 	var categoryItems = getCategoryItems(category, menu);
@@ -44,7 +100,9 @@ $(document).ready(function() {
 		menuItemContainer.append($.parseHTML(noItemsHTML));
 	}
 	
-	for (var i=0; i < n; i++) {
+	for (var i=0; i < n; i++) { 
+		var addButtonID = "addButton" + i;
+	
 		var menuItemHTML = '' +
 			'<div class="row list-group-item">' +
 			'	<div class="col-md-10">' +
@@ -55,13 +113,31 @@ $(document).ready(function() {
 			'		</div>' +
 			'	</div>' +
 			'	<div class="col-md-2">' +
-			'		<button type="button" class="btn btn-lg pull-right menu-item-add">' +
+			'		<button type="button" id="' + addButtonID + '" class="btn btn-lg pull-right menu-item-add">' +
 			'			<span class="glyphicon glyphicon-plus"></span>' +
 			'		</button>' +
 			'	</div>' +
 			'</div>';
 			
 		menuItemContainer.append($.parseHTML(menuItemHTML));
+		
+		$('#' + addButtonID).on('click', function (index) {
+			    return function (e) {
+					var currentOrderJSON = sessionStorage.getItem("currentOrder");
+					var currentOrder = [];
+					
+					//if there are already items in the order then get them
+					if(currentOrderJSON){
+						currentOrder = JSON.parse(currentOrderJSON);
+					}
+					
+					currentOrder.push(categoryItems[index].name);
+					currentOrderJSON = JSON.stringify(currentOrder);
+					
+					sessionStorage.setItem("currentOrder", currentOrderJSON);
+					update();
+				};	
+		}(i));
 	}
 });
 

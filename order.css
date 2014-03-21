@@ -81,18 +81,19 @@ body {
   padding-left: 10px;
 }
 
-#orderContainer .panel {
-  /*height: 400px;*/
+#currentOrderContainer{
+  height: 340px;
+}
+
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 #orderContainer .panel-footer {
   text-align: center;
   font-size: 150%;
   padding-bottom: 0;
-}
-
-#orderContainer .panel-footer .btn {
-  width: 100%;
 }
 
 #totalPrice {
