@@ -2,6 +2,176 @@ menuCategories = {"appetizer":"Appetizers","entree":"Entrees","side":"Sides","de
 
 menuItems = [
 	{
+		"name": "Scallop Martini",
+		"category": "appetizer",
+		"price": 4.99,
+		"description": "Enjoy some spicy scallops served in a sexy Martini glass.",
+		"rating": 8.5,
+		"numReviews": 115,
+		"ingredients": ["scallops","vodka","lime","jalapeno","red pepper","yellow pepper","onion"],
+		"calories": 230,
+		"fatGrams": 14,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 25,
+		"vegetarian": false,
+		"gluten-free": true,
+		"lactose-free": true,
+		"nut-free": true
+	},
+	{
+		"name": "Sunny Shrimp",
+		"category": "appetizer",
+		"price": 3.99,
+		"description": "Spice up your life with some seared shrimp coated in an Asian chili sauce.",
+		"rating": 8.0,
+		"numReviews": 400,
+		"ingredients": ["ginger","garlic","chili sauce","lime","sugar","vegetable oil","shrimp"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": false,
+		"gluten-free": true,
+		"lactose-free": true,
+		"nut-free": true
+	}
+	{
+		"name": "Tamari Pecans",
+		"category": "appetizer",
+		"price": 4.99,
+		"description": "These slightly glazed nuts are simply crunchalicious.",
+		"rating": 7.0,
+		"numReviews": 100,
+		"ingredients": ["pecans","tamari","sugar","chili sauce"],
+		"calories": 200,
+		"fatGrams": 2,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 15,
+		"vegetarian": true,
+		"gluten-free": true,
+		"lactose-free": true,
+		"nut-free": false
+	},
+	{
+		"name": "Mini Cheesecake",
+		"category": "appetizer",
+		"price": 4.99,
+		"description": "A simple mini cheesecake with a delectable smoked salmon filling.",
+		"rating": 8.0,
+		"numReviews": 320,
+		"ingredients": ["pretzels","butter","eggs","cream","salmon","lemon"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": true,
+		"gluten-free": false,
+		"lactose-free": false,
+		"nut-free": true
+	},
+	{
+		"name": "Scallop Skewers",
+		"category": "appetizer",
+		"price": 3.99,
+		"description": "Scallops surrounded by prosciutto and tomatoes.",
+		"rating": 6.7,
+		"numReviews": 741,
+		"ingredients": ["scallops","tomatoes","prosciutto","olive oil","lime"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": false,
+		"gluten-free": true,
+		"lactose-free": true,
+		"nut-free": true
+	},
+	{
+		"name": "Alsatian Bacon Tart",
+		"category": "appetizer",
+		"price": 3.99,
+		"description": "A crisp pastry coated with a mixture of eggs, bacon and whipping cream.",
+		"rating": 8.3,
+		"numReviews": 400,
+		"ingredients": ["pastry","olive oil","bacon","onion","salt","eggs","cream","cheese"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": false,
+		"gluten-free": false,
+		"lactose-free": false,
+		"nut-free": true
+	},	
+	{
+		"name": "Cranberry Brie Puffs",
+		"category": "appetizer",
+		"price": 4.99,
+		"description": "A rich and buttery pastry stuffed with wonderfully tart cranberries.",
+		"rating": 9.5,
+		"numReviews": 984,
+		"ingredients": ["pastry","cranberry","sugar","brie cheese"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": true,
+		"gluten-free": false,
+		"lactose-free": false,
+		"nut-free": true
+	},
+	{
+		"name": "Haiku Halibut",
+		"category": "appetizer",
+		"price": 1.99,
+		"description": "A classic option of halibut drizzled with a sauce that contains an explosion of flavours.",
+		"rating": 8.0,
+		"numReviews": 400,
+		"ingredients": ["halibut","wine","peanut oil","cucumber"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": false,
+		"gluten-free": true,
+		"lactose-free": true,
+		"nut-free": false
+	},
+	{
+		"name": "Herb Fritters",
+		"category": "appetizer",
+		"price": 1.99,
+		"description": "Crunchy morsels packed with vegetables that pair nicely with chicken and fish.",
+		"rating": 7.4,
+		"numReviews": 316,
+		"ingredients": ["flour","mint","vegetable oil"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": true,
+		"gluten-free": false,
+		"lactose-free": true,
+		"nut-free": true
+	},
+	{
+		"name": "Parsnip Twigs",
+		"category": "appetizer",
+		"price": 1.99,
+		"description": "Don't like parsnips. Well your opinion is about to change. These delectable parsnips taste more like sweet potatoes and possess a nice degree of spiciness.",
+		"rating": 9.5,
+		"numReviews": 786,
+		"ingredients": ["parsnips","butter","salt","thyme","Parmesan cheese","parsley"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": true,
+		"gluten-free": true,
+		"lactose-free": false,
+		"nut-free": true
+	},	
+	{
 		"name": "Chicken Parmesan",
 		"category": "entree",
 		"price": 12.99,
@@ -221,7 +391,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": false
-	}
+	},
 	{
 		"name": "Black Bean Salad",
 		"category": "side",
@@ -238,7 +408,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Almond Chicken Salad",
 		"category": "side",
@@ -255,7 +425,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": false
-	}
+	},	
 	{
 		"name": "Barbecue Chicken Salad",
 		"category": "side",
@@ -272,7 +442,58 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": true
-	}	
+	},
+	{
+		"name": "Grilled Asiago Rounds",
+		"category": "side",
+		"price": 1.99,
+		"description": "Fluffy bread, grilled to perfection with an assortment of dipping sauces.",
+		"rating": 8.0,
+		"numReviews": 400,
+		"ingredients": ["flour","olive oil","asiago cheese","parsley"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": true,
+		"gluten-free": false,
+		"lactose-free": false,
+		"nut-free": true
+	},
+	{
+		"name": "Deviled Eggs",
+		"category": "side",
+		"price": 1.99,
+		"description": "Hard boiled eggs stuffed with a filling of mayonnaise, mustard and relish.",
+		"rating": 7.4,
+		"numReviews": 316,
+		"ingredients": ["eggs","mayonnaise","mustard","salt","relish","Worcestershire sauce"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": true,
+		"gluten-free": true,
+		"lactose-free": false,
+		"nut-free": true
+	},
+	{
+		"name": "White Bean Hummus",
+		"category": "side",
+		"price": 1.99,
+		"description": "Perfect hummus to go with pita bread.",
+		"rating": 9.5,
+		"numReviews": 786,
+		"ingredients": ["beans","olive oil","lemon","salt"],
+		"calories": 200,
+		"fatGrams": 20,
+		"proteinGrams": 3,
+		"sodiumMilligrams": 40,
+		"vegetarian": true,
+		"gluten-free": true,
+		"lactose-free": true,
+		"nut-free": true
+	},	
 	{
 		"name": "Scalloped Potatoes",
 		"category": "side",
@@ -289,7 +510,7 @@ menuItems = [
 		"gluten-free": false,
 		"lactose-free": false,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Lemonade",
 		"category": "beverage",
@@ -306,7 +527,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Coke",
 		"category": "beverage",
@@ -323,7 +544,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Ginger Ale",
 		"category": "beverage",
@@ -340,7 +561,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Lemon Iced Tea",
 		"category": "beverage",
@@ -357,7 +578,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Alexander Keith Pale Ale",
 		"category": "beverage",
@@ -374,7 +595,7 @@ menuItems = [
 		"gluten-free": false,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Heineken",
 		"category": "beverage",
@@ -391,7 +612,7 @@ menuItems = [
 		"gluten-free": false,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Corona Extra",
 		"category": "beverage",
@@ -408,7 +629,7 @@ menuItems = [
 		"gluten-free": false,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Stella Artois",
 		"category": "beverage",
@@ -425,7 +646,7 @@ menuItems = [
 		"gluten-free": false,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Newcastle Brown Ale",
 		"category": "beverage",
@@ -442,7 +663,7 @@ menuItems = [
 		"gluten-free": false,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Guinness",
 		"category": "beverage",
@@ -459,7 +680,7 @@ menuItems = [
 		"gluten-free": false,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Raspberry Rose Sensation",
 		"category": "dessert",
