@@ -74,130 +74,137 @@
 		================================================= -->
 
     <div id="menuContainer" class="container">
-		<div class="row">
-			<div id="menuItemContainer" class="col-md-8">
-			  <div class="list-group">
-				<div class="row list-group-item">
-					<div class="col-md-10">
-					  <div class="row">
-						  <div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-						  <div class="col-md-4">Click to expand item information</div>
-						  <div class="col-md-2 pull-right item-price">$12.99</div>
-					  </div>
-					</div>
-					<div class="col-md-2">
-					  <button type="button" class="btn btn-lg pull-right">
-						<span class="glyphicon glyphicon-plus"></span>
-					  </button>
+			<div class="row">
+				<div id="menuItemContainer" class="col-md-8">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+						<h3 class="panel-title">Entrees</h3>
+						</div>
+						<div class="scrollable">
+							<div class="list-group">
+								<div class="row list-group-item">
+									<div class="col-md-8">
+										<div class="row">
+											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
+											<div class="col-md-4">Click to expand item information</div>
+											<div class="col-md-2 pull-right item-price">$12.99</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn btn-lg pull-right">
+										<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</div>
+								</div>
+								<div class="row list-group-item">
+									<div class="col-md-10">
+										<div class="row">
+											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
+											<div class="col-md-4">Click to expand item information</div>
+											<div class="col-md-2 pull-right item-price">$12.99</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn btn-lg pull-right">
+										<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</div>
+								</div>
+								<div class="row list-group-item">
+									<div class="col-md-10">
+										<div class="row">
+											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
+											<div class="col-md-4">Click to expand item information</div>
+											<div class="col-md-2 pull-right item-price">$12.99</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn btn-lg pull-right">
+										<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</div>
+								</div>
+								<div class="row list-group-item">
+									<div class="col-md-10">
+										<div class="row">
+											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
+											<div class="col-md-4">Click to expand item information</div>
+											<div class="col-md-2 pull-right item-price">$12.99</div>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn btn-lg pull-right">
+										<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="row list-group-item">
-					<div class="col-md-10">
-					  <div class="row">
-						  <div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-						  <div class="col-md-4">Click to expand item information</div>
-						  <div class="col-md-2 pull-right item-price">$12.99</div>
-					  </div>
+				<div id="orderContainer" class="col-md-4 pull-right">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+						<h3 class="panel-title">Your Order</h3>
 					</div>
-					<div class="col-md-2">
-					  <button type="button" class="btn btn-lg pull-right">
-						<span class="glyphicon glyphicon-plus"></span>
-					  </button>
+					<div id="currentOrderContainer" class="scrollable">
+						<ul class="list-group">
+							<li class="list-group-item">
+							<div class="row">
+								<div class="col-md-6">Chicken Parmesan</div>
+								<div class="col-md-4">$12.99</div>
+								<div class="col-md-2">
+								<button type="button" class="btn">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+								</div>
+							</div>
+							</li>
+							<li class="list-group-item">
+							<div class="row">
+								<div class="col-md-6">Chicken Parmesan</div>
+								<div class="col-md-4">$12.99</div>
+								<div class="col-md-2">
+								<button type="button" class="btn">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+								</div>
+							</div>
+							</li>
+							<li class="list-group-item">
+							<div class="row">
+								<div class="col-md-6">Chicken Parmesan</div>
+								<div class="col-md-4">$12.99</div>
+								<div class="col-md-2">
+								<button type="button" class="btn">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+								</div>
+							</div>
+							</li>
+							<li class="list-group-item">
+							<div class="row">
+								<div class="col-md-6">Chicken Parmesan</div>
+								<div class="col-md-4">$12.99</div>
+								<div class="col-md-2">
+								<button type="button" class="btn">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+								</div>
+							</div>
+							</li>
+						</ul>
+					</div>
+					<div class="panel-footer">
+						<div class="row">Total (taxes not included)</div>
+						<div id="totalPrice" class="row">$51.96</div>
+						<div class="row">
+							<button type="button" class="btn btn-lg btn-block">Place Order</button>
+						</div>
+					</div>
 					</div>
 				</div>
-				<div class="row list-group-item">
-					<div class="col-md-10">
-					  <div class="row">
-						  <div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-						  <div class="col-md-4">Click to expand item information</div>
-						  <div class="col-md-2 pull-right item-price">$12.99</div>
-					  </div>
-					</div>
-					<div class="col-md-2">
-					  <button type="button" class="btn btn-lg pull-right">
-						<span class="glyphicon glyphicon-plus"></span>
-					  </button>
-					</div>
-				</div>
-				<div class="row list-group-item">
-					<div class="col-md-10">
-					  <div class="row">
-						  <div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-						  <div class="col-md-4">Click to expand item information</div>
-						  <div class="col-md-2 pull-right item-price">$12.99</div>
-					  </div>
-					</div>
-					<div class="col-md-2">
-					  <button type="button" class="btn btn-lg pull-right">
-						<span class="glyphicon glyphicon-plus"></span>
-					  </button>
-					</div>
-				</div>
-			  </div>
 			</div>
-			<div id="orderContainer" class="col-md-4 pull-right">
-			  <div class="panel panel-default">
-			    <div class="panel-heading">
-				  <h3 class="panel-title">Your Order</h3>
-				</div>
-				<div id="currentOrderContainer" class="scrollable">
-					<ul class="list-group">
-					  <li class="list-group-item">
-						<div class="row">
-						  <div class="col-md-6">Chicken Parmesan</div>
-						  <div class="col-md-4">$12.99</div>
-						  <div class="col-md-2">
-							<button type="button" class="btn">
-							  <span class="glyphicon glyphicon-remove"></span>
-							</button>
-						  </div>
-						</div>
-					  </li>
-					  <li class="list-group-item">
-						<div class="row">
-						  <div class="col-md-6">Chicken Parmesan</div>
-						  <div class="col-md-4">$12.99</div>
-						  <div class="col-md-2">
-							<button type="button" class="btn">
-							  <span class="glyphicon glyphicon-remove"></span>
-							</button>
-						  </div>
-						</div>
-					  </li>
-					  <li class="list-group-item">
-						<div class="row">
-						  <div class="col-md-6">Chicken Parmesan</div>
-						  <div class="col-md-4">$12.99</div>
-						  <div class="col-md-2">
-							<button type="button" class="btn">
-							  <span class="glyphicon glyphicon-remove"></span>
-							</button>
-						  </div>
-						</div>
-					  </li>
-					  <li class="list-group-item">
-						<div class="row">
-						  <div class="col-md-6">Chicken Parmesan</div>
-						  <div class="col-md-4">$12.99</div>
-						  <div class="col-md-2">
-							<button type="button" class="btn">
-							  <span class="glyphicon glyphicon-remove"></span>
-							</button>
-						  </div>
-						</div>
-					  </li>
-					</ul>
-				</div>
-				<div class="panel-footer">
-				  <div class="row">Total (taxes not included)</div>
-				  <div id="totalPrice" class="row">$51.96</div>
-				  <div class="row">
-				    <button type="button" class="btn btn-lg btn-block">Place Order</button>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		</div>
 	</div>
 
     <!-- Bootstrap core JavaScript
