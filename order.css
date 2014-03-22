@@ -3,8 +3,18 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 40px;
-  color: #5a5a5a;
+	padding-bottom: 40px;
+	background-color: #000000;
+}
+
+a:link	{
+	text-decoration:none;
+}
+a:visited	{
+	text-decoration:none;
+}
+a:hover	{
+	text-decoration:none;
 }
 
 
@@ -29,28 +39,35 @@ body {
   height:100%;
 }
 .navbar-wrapper .navbar {
+	padding-top: 10px;
   padding-right: 15px;
   padding-left: 15px;
   height: 60px;
-  
+  background-color:#000000;  
 }
 
 .navbar-wrapper .navbar-brand {
-  font-size: 200%;
+	
+  font-size: 350%;
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
+  color:#FFFFFF;
   text-align: center;
   margin: auto;
 }
 
 .navbar-wrapper .navbar-header.pull-left .btn {
   margin-left: 10px;
+	font-size: 25px;
+  color:#FFFFFF;
 }
 
 .navbar-wrapper .navbar-header.pull-right .btn {
   margin-right: 10px;
+	font-size: 25px;
+  color:#FFFFFF;
 }
 
 /* SEARCH
