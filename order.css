@@ -17,7 +17,6 @@ a:hover	{
 }
 
 body {
-	padding-bottom: 40px;
 	background-color: #000000;
 	font-family: Cambria, Georgia, serif;
 }
@@ -51,8 +50,8 @@ body {
 }
 
 .navbar-wrapper .navbar-brand {
-	
   font-size: 350%;
+	font-weight: bold;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -65,7 +64,7 @@ body {
 
 .navbar-wrapper .navbar-header.pull-left .btn {
 	margin-top: 12px;
-  margin-left: 20px;
+  margin-left: 30px;
 	font-size: 25px;
   color:#FFFFFF;
 }
@@ -78,7 +77,6 @@ body {
 }
 
 .breadcrumb	{
-	padding-left: 30px;
 	background-color: #000000;
 	color: #FFFFFF;
 	font-size:20px;
@@ -88,10 +86,10 @@ body {
 -------------------------------------------------- */
 
 #searchContainer {
+	width: 100%;
   margin-top: 80px;
-  width: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* ORDER
@@ -101,21 +99,23 @@ body {
   width: 100%;
   height: 100%;
   padding-left: 30px;
-  padding-right: 5px;
+  padding-right: 30px;
 }
 
 #menuItemContainer {
-  padding-right: 35px;
-	height: 100%;
-	font-size:15px;
+  padding-right: 15px;
+	padding-bottom: 30px;
+	font-size: 15px;
 }
 
 #orderContainer {
-  padding-left: 5px;
+  padding-left: 15px;	
 }
 
 #currentOrderContainer{
-  height: 340px;
+  height: 100%;
+	width: 100%;
+	padding-bottom: 30px;
 }
 
 .scrollable {
