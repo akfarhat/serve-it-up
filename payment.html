@@ -84,26 +84,26 @@
 							<h3 class="panel-title">Payment Details</h3>
 						</div>
 						<div id="detailsContainer">
-              <div id=currentCust">
+              <div id="currentCust">
                 <h3 id="title">Current Customer</h3>
-                <h4>John Doe</h4>
+                <h4 id="customer">John Doe</h4>
               </div>
               <div id="methodContainer">
                 <h3 id="title">Method Of Payment</h3>
                 <h4>
-                  <div class="radio">
+                  <div class="radio col-md-offset-1">
                     <label>
                       <input type="radio" name="method" id="visaOption" value="Visa" checked>
                       Visa Card
                     </label>
                   </div>
-                  <div class="radio">
+                  <div class="radio col-md-offset-1">
                     <label>
                       <input type="radio" name="method" id="debitOption" value="Debit">
                       Debit Card
                     </label>
                   </div>
-                  <div class="radio">
+                  <div class="radio col-md-offset-1">
                     <label>
                       <input type="radio" name="method" id="cashOption" value="Cash">
                       Cash
@@ -113,18 +113,18 @@
               </div>
             
 							<div id="tipContainer">
-                <h3 id="title">Tip Amount:</h3>
+                <h3 id="title">Tip Amount</h3>
                 <h4>
-                  <div class="col-md-2">
-                    <select id="tipType" class="selectpicker col-md-">
+                  <div id="tipType" class="col-md-2 pull-left">
+                    <select id="tipType" class="selectpicker">
                       <option>%</option>
                       <option>$</option>
                     </select>
                   </div>
-                  <div id="tipAmount" class="input-group col-md-2">
+                  <div id="tipAmount" class="input-group col-md-2 pull-right">
                     <input type="" class="form-control" placeholder="15">
                   </div>
-                </h4>
+                </h4>    
               </div>
             </div>
 						<div class="panel-footer">
