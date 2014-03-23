@@ -76,7 +76,7 @@ menuItems = [
 		"description": "Scallops surrounded by prosciutto and tomatoes.",
 		"rating": 6.7,
 		"numReviews": 741,
-		"ingredients": ["scallops","tomatoes","prosciutto","olive oil","lime"],
+		"ingredients": ["scallops","tomato","prosciutto","olive oil","lime"],
 		"calories": 200,
 		"fatGrams": 20,
 		"proteinGrams": 3,
@@ -399,7 +399,7 @@ menuItems = [
 		"description": "A tremendously colourful salad that many distinctive beans into one tasteful blend.",
 		"rating": 6.7,
 		"numReviews": 741,
-		"ingredients": ["black beans","tomatoes","cilantro","lime","bell pepper","avocado","onion"],
+		"ingredients": ["black beans","tomato","cilantro","lime","bell pepper","avocado","onion"],
 		"calories": 200,
 		"fatGrams": 20,
 		"proteinGrams": 3,
@@ -501,7 +501,7 @@ menuItems = [
 		"description": "Creamy scalloped potatoes with a distinct scent of onion.",
 		"rating": 8.0,
 		"numReviews": 400,
-		"ingredients": ["potatoes","butter","salt","milk"],
+		"ingredients": ["potato","butter","salt","milk"],
 		"calories": 200,
 		"fatGrams": 20,
 		"proteinGrams": 3,
@@ -861,10 +861,27 @@ function getCategories() {
 	return menuCategories;
 }
 
+function getFeaturedItems(n) {
+	var featuredItems = [];
+	
+	for (var i=0; i < n; i++) {
+		var randomItem = menuItems[Math.floor(Math.random() * menuItems.length)];
+		
+		if(featuredItems.indexOf(randomItem) === -1) {
+			featuredItems.push(randomItem);
+		}
+		else {
+			i--;
+		}
+	}
+	
+	return featuredItems;
+}
+
 function getItem(itemName, menu) {
 	var n = menu.length;
 	for (var i=0; i < n; i++) {
-		if (menu[i].name === itemName) {
+		if (menu[i].name.toLowerCase() === itemName.toLowerCase()) {
 			return menu[i];
 		}
 	}
@@ -884,6 +901,10 @@ function getCategoryItems(categoryName, menu) {
 	return items;
 }
 
+function pathToImage(name) {
+	return encodeURIComponent('imgs/' + name + '.jpg');
+}
+
 function getAllIngredients(menu) {
 	var n = menu.length;
 	var ingredients = [];
@@ -898,6 +919,24 @@ function getAllIngredients(menu) {
 	}
 	
 	return ingredients;
+}
+
+function search (searchTerm) {
+	var item = getItem(searchTerm, menuItems);
+	if(item) return [item];
+	
+	var searchResults = [];
+	
+	for (var i=0; i < menuItems.length; i++) {
+		if (menuItems[i].name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+			searchResults.push(menuItems[i]);
+		}
+		else if (menuItems[i].ingredients.indexOf(searchTerm.toLowerCase()) !== -1) {
+			searchResults.push(menuItems[i]);
+		}
+	}
+	
+	return searchResults;
 }
 
 $('document').ready(function () {

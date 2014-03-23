@@ -13,8 +13,14 @@ function formatMoney(money) {
 	}
 }
 
-function pathToImage(name) {
-	return encodeURIComponent('imgs/' + name + '.jpg');
+function getUrlVar(key){
+	var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search); 
+	if(result) {
+		return decodeURIComponent(result[1].split("+").join("%20")); 
+	}
+	else {
+		return "";
+	}
 }
 
 function update() {
@@ -72,16 +78,29 @@ function update() {
 $(document).ready(function() {
 	update();
 	
-	var menu = getMenu();
-	var category = sessionStorage.getItem("category");
+	var menuListItems = [];
 	
-	$('.current-category').html(menuCategories[category]);
+	if(getUrlVar('searchQuery')) {
+		menuListItems = search(getUrlVar('searchQuery'));
+		$('.current-category').html('Search Results for "' + getUrlVar('searchQuery') + '"');
+	}
+	else if(getUrlVar('selectedItem')) {
+		menuListItems = [getItem(getUrlVar('selectedItem'), menuItems)];
+		$('.current-category').html(getUrlVar('selectedItem'));
+	}
+	else {
+		var menu = getMenu();
+		var category = sessionStorage.getItem("category");
+		
+		$('.current-category').html(menuCategories[category]);
+		
+		menuListItems = getCategoryItems(category, menu);
+	}
 	
-	var categoryItems = getCategoryItems(category, menu);
 	var menuItemContainer = $('#menuItemContainer .list-group').empty();
 	
-	//sort categoryItems alphabetically by menu item name
-	categoryItems.sort(function (a, b) {
+	//sort menuListItems alphabetically by menu item name
+	menuListItems.sort(function (a, b) {
 		var aName = a.name.toLowerCase();
 		var bName = b.name.toLowerCase();
 		if (aName < bName) return -1;
@@ -91,7 +110,7 @@ $(document).ready(function() {
 	
 	//for each item in the category, add a list-group-item div containing the
 	//menu item information to the menuItemContainer
-	var n = categoryItems.length;
+	var n = menuListItems.length;
 	
 	//if there are no items in the category
 	if(n === 0) {
@@ -114,9 +133,9 @@ $(document).ready(function() {
 			'		<a href="#collapse' + i + '" data-toggle="collapse">' +
 			'			<div class="col-md-11">' +
 			'				<div class="row">' +
-			'					<div class="col-md-5 pull-left item-name">' + categoryItems[i].name + '</div>' +
+			'					<div class="col-md-5 pull-left item-name">' + menuListItems[i].name + '</div>' +
 			'					<div class="col-md-5">Click to expand item information</div>' +
-			'					<div class="col-md-2 pull-right item-price">' + formatMoney(categoryItems[i].price) + '</div>' +
+			'					<div class="col-md-2 pull-right item-price">' + formatMoney(menuListItems[i].price) + '</div>' +
 			'				</div>' +
 			'			</div>' +
 			'		</a>' +
@@ -129,12 +148,42 @@ $(document).ready(function() {
 			'	<div id="collapse' + i + '" class="panel-collapse collapse">' +
 			'		<div class="row">' +
 			'			<div class="col-md-3">' +
-			'				<img src="' + pathToImage(categoryItems[i].name) + '" class="menu-item-image">' +
+			'				<img src="' + pathToImage(menuListItems[i].name) + '" class="menu-item-image">' +
 			'			</div>' +
-			'			<div class="col-md-9">' +
+			'			<div class="col-md-9 menu-item-description-container">' +
 			'				<span class="menu-item-description">' +
-								categoryItems[i].description
+								menuListItems[i].description +
 			'				</span>' +
+			'			</div>' +
+			'		</div>' +
+			'		<div class="row">' +
+			'			<div class="col-md-6">' +
+			'				Rating: ' + menuListItems[i].rating + '/10 (' +
+								menuListItems[i].numReviews + ' Review)' +
+			'			</div>' +
+			'			<div class="col-md-3 col-md-offset-3">' +
+			'				<button type="button" class="btn btn-primary btn-block">' +
+			'					Rate Item' +
+			'				</button>' +
+			'			</div>' +
+			'		</div>' +
+			'		<div class="row ingredients">' +
+			'			<div class="col-md-12">' +
+			'				Ingredients: ' + menuListItems[i].ingredients.join(", ") +
+			'			</div>' +
+			'		</div>' +
+			'		<div class="row nutrition">' +
+			'			<div class="col-md-3">' +
+			'				Calories: ' + menuListItems[i].calories +
+			'			</div>' +
+			'			<div class="col-md-3">' +
+			'				Fat: ' + menuListItems[i].fatGrams + ' g' +
+			'			</div>' +
+			'			<div class="col-md-3">' +
+			'				Protein: ' + menuListItems[i].proteinGrams + ' g' +
+			'			</div>' +
+			'			<div class="col-md-3">' +
+			'				Sodium: ' + menuListItems[i].sodiumMilligrams + ' mg' +
 			'			</div>' +
 			'		</div>' +
 			'	</div>' +
@@ -152,7 +201,7 @@ $(document).ready(function() {
 						currentOrder = JSON.parse(currentOrderJSON);
 					}
 					
-					currentOrder.push(categoryItems[index].name);
+					currentOrder.push(menuListItems[index].name);
 					currentOrderJSON = JSON.stringify(currentOrder);
 					
 					sessionStorage.setItem("currentOrder", currentOrderJSON);
@@ -164,5 +213,11 @@ $(document).ready(function() {
 	$('#accordion').on('show.bs.collapse', function () {
 		$('#accordion .in').collapse('hide');
 	});
+	
+	/*$('#accordion').on('shown.bs.collapse', function () {
+		$('#menuListContainer').animate({
+			scrollTop: $('#accordion .in').parent().position().top
+		}, 1000);
+	});*/
 });
 
