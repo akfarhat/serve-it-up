@@ -134,7 +134,7 @@ $(document).ready(function() {
 			'			<div class="col-md-11">' +
 			'				<div class="row">' +
 			'					<div class="col-md-5 pull-left item-name">' + menuListItems[i].name + '</div>' +
-			'					<div class="col-md-5">Click to expand item information</div>' +
+			'					<div class="col-md-5">click to expand item information</div>' +
 			'					<div class="col-md-2 pull-right item-price">' + formatMoney(menuListItems[i].price) + '</div>' +
 			'				</div>' +
 			'			</div>' +
@@ -159,7 +159,7 @@ $(document).ready(function() {
 			'		<div class="row">' +
 			'			<div class="col-md-6">' +
 			'				Rating: ' + menuListItems[i].rating + '/10 (' +
-								menuListItems[i].numReviews + ' Review)' +
+								menuListItems[i].numReviews + ' Reviews)' +
 			'			</div>' +
 			'			<div class="col-md-3 col-md-offset-3">' +
 			'				<button type="button" class="btn btn-primary btn-block">' +
