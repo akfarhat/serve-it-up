@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,14 +49,13 @@
     </div>
 	
 		<div id="searchContainer" class="container">
-		<hr>
 			<div class="row">
 		<!-- Breadcrumbs
 		================================================== -->
 				<div class="col-md-8 pull-left">
 					<ol class="breadcrumb">
 						<li><a href="index.html">Main Menu</a></li>
-						<li class="active">Entrees</li>
+						<li class="active current-category">Entrees</li>
 					</ol>
 				</div>
 		
@@ -64,7 +64,7 @@
 				<div class="col-md-4 pull-right">
 				 <div class="input-group">
 					 <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-							 <input type="text" class="form-control" placeholder="Search ingredients or dish">
+							 <input type="text" id="searchInput" class="form-control" placeholder="Search ingredients or dish">
 				 </div>
 				</div>
 			</div>
@@ -78,130 +78,30 @@
 				<div id="menuItemContainer" class="col-md-8">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-						<h3 class="panel-title">Entrees</h3>
+							<h3 class="panel-title current-category">Category</h3>
 						</div>
-						<div class="scrollable">
-							<div class="list-group">
-								<div class="row list-group-item">
-									<div class="col-md-8">
-										<div class="row">
-											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-											<div class="col-md-4">Click to expand item information</div>
-											<div class="col-md-2 pull-right item-price">$12.99</div>
-										</div>
-									</div>
-									<div class="col-md-2">
-										<button type="button" class="btn btn-lg pull-right">
-										<span class="glyphicon glyphicon-plus"></span>
-										</button>
-									</div>
-								</div>
-								<div class="row list-group-item">
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-											<div class="col-md-4">Click to expand item information</div>
-											<div class="col-md-2 pull-right item-price">$12.99</div>
-										</div>
-									</div>
-									<div class="col-md-2">
-										<button type="button" class="btn btn-lg pull-right">
-										<span class="glyphicon glyphicon-plus"></span>
-										</button>
-									</div>
-								</div>
-								<div class="row list-group-item">
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-											<div class="col-md-4">Click to expand item information</div>
-											<div class="col-md-2 pull-right item-price">$12.99</div>
-										</div>
-									</div>
-									<div class="col-md-2">
-										<button type="button" class="btn btn-lg pull-right">
-										<span class="glyphicon glyphicon-plus"></span>
-										</button>
-									</div>
-								</div>
-								<div class="row list-group-item">
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-6 pull-left item-name">Chicken Parmesan</div>
-											<div class="col-md-4">Click to expand item information</div>
-											<div class="col-md-2 pull-right item-price">$12.99</div>
-										</div>
-									</div>
-									<div class="col-md-2">
-										<button type="button" class="btn btn-lg pull-right">
-										<span class="glyphicon glyphicon-plus"></span>
-										</button>
-									</div>
-								</div>
-							</div>
+						<div id="menuListContainer" class="scrollable">
+							<ul id="accordion" class="list-group">
+							</ul>
 						</div>
 					</div>
 				</div>
-				<div id="orderContainer" class="col-md-4 pull-right">
+				<div id="orderContainer" class="col-md-4">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-						<h3 class="panel-title">Your Order</h3>
-					</div>
-					<div id="currentOrderContainer" class="scrollable">
-						<ul class="list-group">
-							<li class="list-group-item">
-							<div class="row">
-								<div class="col-md-6">Chicken Parmesan</div>
-								<div class="col-md-4">$12.99</div>
-								<div class="col-md-2">
-								<button type="button" class="btn">
-									<span class="glyphicon glyphicon-remove"></span>
-								</button>
-								</div>
-							</div>
-							</li>
-							<li class="list-group-item">
-							<div class="row">
-								<div class="col-md-6">Chicken Parmesan</div>
-								<div class="col-md-4">$12.99</div>
-								<div class="col-md-2">
-								<button type="button" class="btn">
-									<span class="glyphicon glyphicon-remove"></span>
-								</button>
-								</div>
-							</div>
-							</li>
-							<li class="list-group-item">
-							<div class="row">
-								<div class="col-md-6">Chicken Parmesan</div>
-								<div class="col-md-4">$12.99</div>
-								<div class="col-md-2">
-								<button type="button" class="btn">
-									<span class="glyphicon glyphicon-remove"></span>
-								</button>
-								</div>
-							</div>
-							</li>
-							<li class="list-group-item">
-							<div class="row">
-								<div class="col-md-6">Chicken Parmesan</div>
-								<div class="col-md-4">$12.99</div>
-								<div class="col-md-2">
-								<button type="button" class="btn">
-									<span class="glyphicon glyphicon-remove"></span>
-								</button>
-								</div>
-							</div>
-							</li>
-						</ul>
-					</div>
-					<div class="panel-footer">
-						<div class="row">Total (taxes not included)</div>
-						<div id="totalPrice" class="row">$51.96</div>
-						<div class="row">
-							<button type="button" class="btn btn-lg btn-block">Place Order</button>
+							<h3 class="panel-title">Your Order</h3>
 						</div>
-					</div>
+						<div id="currentOrderContainer" class="scrollable">
+							<ul class="list-group">
+							</ul>
+						</div>
+						<div class="panel-footer">
+							<div class="row">Total (taxes not included)</div>
+							<div id="totalPrice" class="row">$0.00</div>
+							<div class="row">
+								<button type="button" id="placeOrderButton" class="btn btn-lg btn-block">Place Order</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -211,12 +111,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 	
 	<!-- My scripts
 	================================================== -->
-	<script src="menu.js"></script>
-	<script src="serveitup.js"></script>
+	<script type="application/javascript" charset="utf-8" src="menu.js"></script>
+	<script type="application/javascript" charset="utf-8" src="serveitup.js"></script>
 	<script type="text/javascript">
 		var selScrollable = '.scrollable';
 		// Uses document because document will be topmost level in bubbling

@@ -1,4 +1,4 @@
-
+﻿
 function formatMoney(money) {
 	if((typeof money == "string" || money instanceof String)) {
 		if(money.charAt(0) == '$') {
@@ -11,6 +11,10 @@ function formatMoney(money) {
 	else if (typeof money == "number"){
 		return '$' + money.toFixed(2);
 	}
+}
+
+function pathToImage(name) {
+	return encodeURIComponent('imgs/' + name + '.jpg');
 }
 
 function update() {
@@ -29,8 +33,8 @@ function update() {
 			var orderItemHTML = '' +
 				'<li class="list-group-item">' +
 				    '<div class="row">' +
-					 '<div class="col-md-6">' + menuItem.name + '</div>' +
-					  '<div class="col-md-4">' + formatMoney(menuItem.price) + '</div>' +
+					 '<div class="col-md-7">' + menuItem.name + '</div>' +
+					  '<div class="col-md-3">' + formatMoney(menuItem.price) + '</div>' +
 					  '<div class="col-md-2">' +
 					    '<button type="button" id="' + removeButtonID + '" class="btn">' +
 						  '<span class="glyphicon glyphicon-remove"></span>' +
@@ -68,12 +72,13 @@ function update() {
 $(document).ready(function() {
 	update();
 	
-	$('.breadcrumb button').on('click', function () { sessionStorage.clear(); update();});
-	
 	var menu = getMenu();
 	var category = sessionStorage.getItem("category");
+	
+	$('.current-category').html(menuCategories[category]);
+	
 	var categoryItems = getCategoryItems(category, menu);
-	var menuItemContainer = $('#menuItemContainer > .list-group').empty();
+	var menuItemContainer = $('#menuItemContainer .list-group').empty();
 	
 	//sort categoryItems alphabetically by menu item name
 	categoryItems.sort(function (a, b) {
@@ -104,20 +109,36 @@ $(document).ready(function() {
 		var addButtonID = "addButton" + i;
 	
 		var menuItemHTML = '' +
-			'<div class="row list-group-item">' +
-			'	<div class="col-md-10">' +
-			'		<div class="row">' +
-			'			<div class="col-md-6 pull-left item-name">' + categoryItems[i].name + '</div>' +
-			'			<div class="col-md-4">Click to expand item information</div>' +
-			'			<div class="col-md-2 pull-right item-price">' + formatMoney(categoryItems[i].price) + '</div>' +
+			'<li class="list-group-item">' +
+			'	<div class="row">' +
+			'		<a href="#collapse' + i + '" data-toggle="collapse">' +
+			'			<div class="col-md-11">' +
+			'				<div class="row">' +
+			'					<div class="col-md-5 pull-left item-name">' + categoryItems[i].name + '</div>' +
+			'					<div class="col-md-5">Click to expand item information</div>' +
+			'					<div class="col-md-2 pull-right item-price">' + formatMoney(categoryItems[i].price) + '</div>' +
+			'				</div>' +
+			'			</div>' +
+			'		</a>' +
+			'		<div class="col-md-1">' +
+			'			<button type="button" id="' + addButtonID + '" class="btn btn-lg pull-right menu-item-add">' +
+			'				<span class="glyphicon glyphicon-plus"></span>' +
+			'			</button>' +
 			'		</div>' +
 			'	</div>' +
-			'	<div class="col-md-2">' +
-			'		<button type="button" id="' + addButtonID + '" class="btn btn-lg pull-right menu-item-add">' +
-			'			<span class="glyphicon glyphicon-plus"></span>' +
-			'		</button>' +
+			'	<div id="collapse' + i + '" class="panel-collapse collapse">' +
+			'		<div class="row">' +
+			'			<div class="col-md-3">' +
+			'				<img src="' + pathToImage(categoryItems[i].name) + '" class="menu-item-image">' +
+			'			</div>' +
+			'			<div class="col-md-9">' +
+			'				<span class="menu-item-description">' +
+								categoryItems[i].description
+			'				</span>' +
+			'			</div>' +
+			'		</div>' +
 			'	</div>' +
-			'</div>';
+			'</li>';
 			
 		menuItemContainer.append($.parseHTML(menuItemHTML));
 		
@@ -139,5 +160,9 @@ $(document).ready(function() {
 				};	
 		}(i));
 	}
+	
+	$('#accordion').on('show.bs.collapse', function () {
+		$('#accordion .in').collapse('hide');
+	});
 });
 

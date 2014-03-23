@@ -60,6 +60,19 @@ body {
   margin-top: 80px;
 }
 
+.ui-autocomplete {
+    max-height: 150px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+.ui-autocomplete-category {
+    font-weight: bold;
+    line-height: 1.5;
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 

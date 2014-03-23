@@ -1,4 +1,4 @@
-menuCategories = {"appetizer":"Appetizers","entree":"Entrees","side":"Sides","dessert":"Desserts","beverage":"Beverages"};
+ï»¿menuCategories = {"appetizer":"Appetizers","entree":"Entrees","side":"Sides","dessert":"Desserts","beverage":"Beverages"};
 
 menuItems = [
 	{
@@ -34,7 +34,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": true
-	}
+	},
 	{
 		"name": "Tamari Pecans",
 		"category": "appetizer",
@@ -257,7 +257,7 @@ menuItems = [
 		"nut-free": true
 	},
 	{
-		"name": "Masala Marinated Chicken with Minted Yoghurt Sauce",
+		"name": "Masala Marinated Chicken",
 		"category": "entree",
 		"price": 14.99,
 		"description": "Tender and mouth watering chicken cooked to perfection with a spicy marinade.",
@@ -357,7 +357,7 @@ menuItems = [
 		"gluten-free": true,
 		"lactose-free": true,
 		"nut-free": false
-	}
+	},
 	{
 		"name": "Garden Salad",
 		"category": "side",
@@ -753,7 +753,7 @@ menuItems = [
 		"name": "Cider Swiss Fondue",
 		"category": "dessert",
 		"price": 8.99,
-		"description": "A traditional cheese fondue that uses Gruyère cheese to give it unbelievable flavour.",
+		"description": "A traditional cheese fondue that uses GruyÃ¨re cheese to give it unbelievable flavour.",
 		"rating": 6.9,
 		"numReviews": 10,
 		"ingredients": ["lemon","butter","cream","garlic","cheese"],
@@ -767,7 +767,7 @@ menuItems = [
 		"nut-free": true
 	},
 	{
-		"name": "Classic Crème Brulée",
+		"name": "Classic CrÃ¨me BrulÃ©e",
 		"category": "dessert",
 		"price": 7.99,
 		"description": "Smooth and creamy, this dessert is enhanced further by the subtle vanilla flavour in the background.",
@@ -883,4 +883,54 @@ function getCategoryItems(categoryName, menu) {
 	
 	return items;
 }
+
+function getAllIngredients(menu) {
+	var n = menu.length;
+	var ingredients = [];
 	
+	for (var i=0; i < n; i++) {
+		for (var j=0; j < menu[i].ingredients.length; j++) {
+			var ingredient = menu[i].ingredients[j];
+			if(ingredients.indexOf(ingredient) === -1) {
+				ingredients.push(ingredient);
+			}
+		}
+	}
+	
+	return ingredients;
+}
+
+$('document').ready(function () {
+	$.widget( "custom.catcomplete", $.ui.autocomplete, {
+		_renderMenu: function( ul, items ) {
+		  var that = this,
+			currentCategory = "";
+		  $.each( items, function( index, item ) {
+			if ( item.category != currentCategory ) {
+			  ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+			  currentCategory = item.category;
+			}
+			that._renderItemData( ul, item );
+		  });
+		}
+	});
+	
+	var dishes = $.map(menuItems, function (menuItem) { return { label: menuItem.name, category: "Dishes"};});
+	var allIngredients = getAllIngredients(menuItems);
+	var ingredients = $.map(allIngredients, function (ingredient) { return { label: ingredient, category: "Ingredients"};});
+	
+	var data = dishes.concat(ingredients);
+ 
+    $( "#searchInput" ).catcomplete({
+		delay: 0,
+		source: function(request, response) {
+			var matches = $.map(data, function(dataItem) {
+				var re = new RegExp("\\b" + request.term.toLowerCase());
+				if (re.test(dataItem.label.toLowerCase())) {
+					return dataItem;
+				}
+			});
+			response(matches);
+		}
+    });
+});
