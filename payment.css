@@ -1,0 +1,190 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+@font-face {
+    font-family: 'deliciousroman';
+    src: url('fonts/delicious-roman-webfont.eot');
+    src: url('fonts/delicious-roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/delicious-roman-webfont.woff') format('woff'),
+         url('fonts/delicious-roman-webfont.ttf') format('truetype'),
+         url('fonts/delicious-roman-webfont.svg#deliciousroman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'deliciousroman', Arial, sans-serif;
+}
+
+a:link, a:visited, a:hover {
+	text-decoration:none;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-right: 0;
+  padding-left: 0;
+  width:100%;
+  height:100%;
+}
+
+.navbar-wrapper .navbar {
+	padding-top: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 100px;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+
+.navbar-wrapper .navbar-brand {
+	font-weight: bold;
+  font-size: 400%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  color:#FFFFFF;
+  text-align: center;
+  margin: auto;
+  line-height: 45px;
+}
+
+.navbar-wrapper .navbar-header.pull-left .btn {
+	margin-top: 12px;
+  margin-left: 30px;
+	font-size: 25px;
+  color:#FFFFFF;
+}
+
+.navbar-wrapper .navbar-header.pull-right .btn {
+  margin-top: 12px;
+  margin-right: 30px;
+  font-size: 25px;
+  color:#FFFFFF;
+  background: none;
+}
+
+.breadcrumb	{
+	color: #FFFFFF;
+	font-size:20px;
+}
+
+/* BREADCRUMBS
+-------------------------------------------------- */
+
+#crumbContainer {
+	width: 100%;
+  margin-top: 120px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* ORDER AND PAYMENT DETAILS
+-------------------------------------------------- */
+
+#checkoutContainer {
+  width: 100%;
+  height: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#orderItemContainer {
+  padding-right: 15px;
+}
+
+#orderListContainer {
+  height: 425px;
+}
+
+#orderListContainer .list-group-item {
+  line-height: 45px;
+}
+
+#orderListContainer .item-name {
+  font-weight: bold;
+}
+
+#paymentContainer {
+  padding-left: 15px;	
+}
+
+#detailsContainer{
+  height: 280px;
+}
+
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#paymentContainer .panel-footer {
+  text-align: center;
+  font-size: 150%;
+  padding-bottom: 0;
+}
+
+#totalPrice {
+  font-size: 200%;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remove the edge padding needed for mobile */
+  .marketing {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left:  15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left:  0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}

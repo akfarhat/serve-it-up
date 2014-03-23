@@ -87,14 +87,13 @@ $(document).ready(function() {
 	else if(getUrlVar('selectedItem')) {
 		menuListItems = [getItem(getUrlVar('selectedItem'), menuItems)];
 		$('.current-category').html(getUrlVar('selectedItem'));
-	}
-	else {
-		var menu = getMenu();
-		var category = sessionStorage.getItem("category");
-		
-		$('.current-category').html(menuCategories[category]);
-		
-		menuListItems = getCategoryItems(category, menu);
+	} 
+  else if(sessionStorage.getItem("category")) {
+    var menu = getMenu();
+    var category = sessionStorage.getItem("category");
+     
+    menuListItems = getCategoryItems(category, menu);
+    $('.current-category').html(menuCategories[category]);   
 	}
 	
 	var menuItemContainer = $('#menuItemContainer .list-group').empty();
