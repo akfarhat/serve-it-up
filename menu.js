@@ -835,7 +835,7 @@ menuItems = [
 		"nut-free": true
 	},
 	{
-		"name": "Lemon Raspberry Ice Cream Torte",
+		"name": "Lemon Raspberry Torte",
 		"category": "dessert",
 		"price": 7.99,
 		"description": "Vanilla, lemon and raspberries all combined perfectly with several scoops of ice cream, for your ultimate enjoyment.",
