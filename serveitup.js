@@ -30,6 +30,7 @@ function createModal(modalType)  {
 
 function update() {
   $('#placeOrderButton').prop('disabled', true);
+  $('#checkoutButton').prop('disabled', true);
 
 	var menu = getMenu();
 	var currentOrderContainer = $('#orderContainer ul').empty();
@@ -56,6 +57,7 @@ function update() {
 		}
 		
 		if(submittedItems.length > 0) {
+      $('#checkoutButton').prop('disabled', false);
 			$('#checkoutButton').css('visibility','visible');
 		}
 	}
@@ -277,6 +279,10 @@ $(document).ready(function() {
     
     createModal("submit");
 	});
+  
+  $('#checkoutButton').on('click', function(e)  {
+    window.location = "payment.html";
+  });
   
   $('#assistBtn').on('click', function (e) {
     createModal("assistance");
