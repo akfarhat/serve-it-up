@@ -200,6 +200,31 @@ a:link, a:visited, a:hover {
   visibility: hidden;
 }
 
+#submitModal, #assistanceModal, #helpModal {
+  padding-top: 20%;
+  padding-right: 50%;
+}
+
+.modal-body {
+    width: 275%;
+    font-size: 125%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#submitModal .modal-body {
+  background-color: #B8FFB8;
+  color: #000000;
+}
+
+#assistanceModal .modal-body{
+  background-color: #FF4545;
+}
+
+#helpModal .modal-body {
+  background-color: #3276b1;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

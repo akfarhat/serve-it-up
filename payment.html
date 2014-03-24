@@ -33,7 +33,7 @@
       <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top">
           <div class="navbar-header pull-left">
-            <button type="button" class="btn btn-danger btn-lg navbar-btn">
+            <button type="button" id="assistBtn" class="btn btn-danger btn-lg navbar-btn">
 							Waiter Assistance
 						</button>
           </div>
@@ -41,7 +41,7 @@
 						<div class="navbar-brand">ServeItUp</div>
           </div>
 					<div class="navbar-header pull-right">
-            <button type="button" class="btn btn-lg navbar-btn">
+            <button id="helpBtn" type="button" class="btn btn-lg navbar-btn">
 							<span class="glyphicon glyphicon-question-sign"></span> Help
 						</button>
           </div>
@@ -147,14 +147,49 @@
           <strong>Payment Successful!</strong>
         </div>
         <div>
-          <strong>If you are paying with visa or credit a server will soon be with you to accept payment.</strong>
+          <strong>If you are paying with visa or credit a waiter will soon be with you to accept payment.</strong>
         </div>
         <div>
           Thank you for using ServeItUp and have a great day!
         </div>
       </div>
     </div>
-  </div><!-- /.modal -->
+  </div>
+  
+  <div id="assistanceModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <div>
+          <strong>Please Be Patient!</strong>
+        </div>
+        <div>
+          <strong>A waiter will soon be with you to assist and answer any questions you may have.</strong>
+        </div>
+        <div>
+          Thank you for using ServeItUp and have a great day!
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="helpModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <div>
+          <strong>Select your method of payment from the options presented.</strong>
+        </div>
+        <div>
+          <strong>Select what type of tipping you prefer and enter a corresponding value.</strong>
+        </div>
+        <div>
+          <strong>Click the Pay Now button.</strong>
+        </div>
+        <div>
+          Click anywhere to dismiss this message
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

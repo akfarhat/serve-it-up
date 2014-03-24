@@ -1,3 +1,15 @@
+function createModal(modalType)  {
+  if(modalType === "assistance") {
+    $('#assistanceModal').modal('show');
+
+    setTimeout(function() {
+      $("#assistanceModal").modal('hide');
+      }, 10000);
+  } else if(modalType === "help")  {
+    $('#helpModal').modal('show');
+  }
+}
+
 $(document).ready(function() {
 	var menu = getMenu();
 	var categories = getCategories();
@@ -67,6 +79,11 @@ $(document).ready(function() {
 		}
 	}
 	
-	
+	$('#assistBtn').on('click', function (e) {
+    createModal("assistance");
+  });
+  $('#helpBtn').on('click', function (e) {
+    createModal("help");
+  });
 	
 });

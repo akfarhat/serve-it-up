@@ -28,13 +28,26 @@ function updatePrice() {
   $('#totalPrice').html(formatMoney(total));
 }
 
-function createModal()  {
-  $('#paymentModal').modal('show');
+function createModal(modalType)  {
+  if(modalType === "payment") {
+
+    $('#paymentModal').modal('show');
 
     setTimeout(function() {
       $("#paymentModal").modal('hide');
       window.location = "index.html";
-    }, 10000);
+      }, 10000);
+  }
+  else if(modalType === "assistance") {
+    $('#assistanceModal').modal('show');
+
+    setTimeout(function() {
+      $("#assistanceModal").modal('hide');
+      }, 10000);
+  } 
+  else if(modalType === "help")  {
+    $('#helpModal').modal('show');
+  }
 }
 
 function initialize()  {
@@ -48,6 +61,9 @@ function initialize()  {
   if(itemJSON){
     var items = JSON.parse(itemJSON);
     var submittedItems = [];
+    
+    if(items.length > 0)
+      $('#payNowButton').prop('disabled', false);
     
     for(var i=0; i<items.length; i++)  {
       submittedItems.push(getItem(items[i], menu));
@@ -114,7 +130,6 @@ function initialize()  {
     }
     
     $('#totalPrice').html(formatMoney(total));
-    $('#payNowButton').prop('disabled', false);
   }
 }
 
@@ -124,15 +139,21 @@ $(document).ready(function() {
     
   $('#tipAmountVal').on('change', function()  {
     updatePrice();
-    });
+  });
   $('#tipTypeVal').on('change', function()  {
     updatePrice();
-    });
+  });
   $('#payNowButton').on('click', function()  {
     sessionStorage.clear();
     $('#orderItemContainer .list-group').empty();
     updatePrice();
-    createModal();
-    });      
+    createModal("payment");
+  });
+  $('#assistBtn').on('click', function() {
+    createModal("assistance");
+  });
+  $('#helpBtn').on('click', function() {
+    createModal("help");
+  });
 });
 

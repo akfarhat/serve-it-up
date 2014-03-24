@@ -49,37 +49,21 @@
       </div>
     </div>
 	
-	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2>Welcome to ServeItUp!</h2>
-				</div>
-				<div class="modal-body">
-					Please select one of the categories below to begin browsing our menu items.
-				</div>
-				<div class="modal-footer">
-					Click anywhere outside this box to dismiss it
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Search
-	================================================== -->
-  <div id="searchContainer" class="container">
-	  <div class="row">
-	    <div class="col-md-4 col-md-offset-4">
-			<form name="search" action="order.html" method="get">
-				<div class="input-group">
-					<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-					<input type="text" name="searchQuery" id="searchInput" class="form-control" placeholder="Search ingredients or dish" autocomplete="off">
-				</div>
-			</form>
-			</span>
-	    </div>
-	  </div>
-	</div>
+    <!-- Search
+    ================================================== -->
+    <div id="searchContainer" class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+        <form name="search" action="order.html" method="get">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" name="searchQuery" id="searchInput" class="form-control" placeholder="Search ingredients or dish" autocomplete="off">
+          </div>
+        </form>
+        </span>
+        </div>
+      </div>
+    </div>
 
     <!-- Carousel
     ================================================== -->
@@ -120,8 +104,6 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->
 
-
-
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -153,6 +135,38 @@
       </div><!-- /.row -->
 	  
     </div><!-- /.container -->
+    
+  <div id="assistanceModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <div>
+          <strong>Please Be Patient!</strong>
+        </div>
+        <div>
+          <strong>A waiter will soon be with you to assist and answer any questions you may have.</strong>
+        </div>
+        <div>
+          Thank you for using ServeItUp and have a great day!
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="helpModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <div>
+          <strong>Welcome to ServeItUp!</strong>
+        </div>
+        <div>
+          <strong>Please select one of the categories below to begin browsing our menu items.</strong>
+        </div>
+        <div>
+          Click anywhere outside this box to dismiss it
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
