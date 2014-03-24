@@ -1,5 +1,5 @@
 function updatePrice() {
-  var itemJSON = sessionStorage.getItem("currentOrder");
+  var itemJSON = sessionStorage.getItem("submittedItems");
   
   //if there are items in the order then get them
   if(itemJSON){
@@ -30,7 +30,7 @@ function updatePrice() {
 
 function initialize()  {
   var menu = getMenu();
-  var itemJSON = sessionStorage.getItem("currentOrder");
+  var itemJSON = sessionStorage.getItem("submittedItems");
   
   //if there are items in the order then get them
   if(itemJSON){
