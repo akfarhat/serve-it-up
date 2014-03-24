@@ -26,8 +26,32 @@ function getUrlVar(key){
 function update() {
 	var menu = getMenu();
 	var currentOrderContainer = $('#orderContainer ul').empty();
-	var currentOrderJSON = sessionStorage.getItem("currentOrder");
+	var submittedItemsJSON = sessionStorage.getItem('submittedItems');
+	var currentOrderJSON = sessionStorage.getItem('currentOrder');
 	var total = 0;
+	
+	if(submittedItemsJSON) {
+		var submittedItems = JSON.parse(submittedItemsJSON);
+		
+		for (var i = 0; i < submittedItems.length; i++) {
+			var menuItem = getItem(submittedItems[i], menu);
+			
+			var submittedItemHTML = '' +
+				'<li class="list-group-item submitted-item">' +
+				'	<div class="row">' +
+				'		<div class="col-md-7">' + menuItem.name + '</div>' +
+				'		<div class="col-md-3">' + formatMoney(menuItem.price) + '</div>' +
+				'	</div>' +
+				'</li>';
+			
+			currentOrderContainer.append($.parseHTML(submittedItemHTML));
+			total += menuItem.price;
+		}
+		
+		if(submittedItems.length > 0) {
+			$('#checkoutButton').css('visibility','visible');
+		}
+	}
 	
 	if (currentOrderJSON) {
 		var currentOrder = JSON.parse(currentOrderJSON);
@@ -133,7 +157,7 @@ $(document).ready(function() {
 			'			<div class="col-md-11">' +
 			'				<div class="row">' +
 			'					<div class="col-md-5 pull-left item-name">' + menuListItems[i].name + '</div>' +
-			'					<div class="col-md-5">click to expand item information</div>' +
+			'					<div class="col-md-5 click-expand">click to expand item information</div>' +
 			'					<div class="col-md-2 pull-right item-price">' + formatMoney(menuListItems[i].price) + '</div>' +
 			'				</div>' +
 			'			</div>' +
@@ -218,5 +242,31 @@ $(document).ready(function() {
 			scrollTop: $('#accordion .in').parent().position().top
 		}, 1000);
 	});*/
+	
+	$('#placeOrderButton').on('click', function (e) {
+		var currentOrderJSON = sessionStorage.getItem('currentOrder');
+		var submittedItemsJSON = sessionStorage.getItem('submittedItems');
+		
+		if(currentOrderJSON && JSON.parse(currentOrderJSON).length > 0) {
+			if(submittedItemsJSON && JSON.parse(submittedItemsJSON)) {
+				var submittedItems = JSON.parse(submittedItemsJSON);
+				var currentOrder = JSON.parse(currentOrderJSON);
+				
+				submittedItems = submittedItems.concat(currentOrder);
+				submittedItemsJSON = JSON.stringify(submittedItems);
+				
+				sessionStorage.setItem('submittedItems', submittedItemsJSON);
+			}
+			else {
+				sessionStorage.setItem('submittedItems', currentOrderJSON);
+			}
+			
+			sessionStorage.removeItem('currentOrder');
+			update();
+		}
+		else {
+			alert("No menu items in order");
+		}
+	});
 });
 
