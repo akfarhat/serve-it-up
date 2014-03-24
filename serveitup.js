@@ -40,6 +40,11 @@ function update() {
 	
 	if (currentOrderJSON) {
 		var currentOrder = JSON.parse(currentOrderJSON);
+    
+    if(currentOrder.length > 0)
+      $('#placeOrderButton').prop('disabled', false);
+    else
+      $('#placeOrderButton').prop('disabled', true);
 		
 		for (var i = 0; i < currentOrder.length; i++) {
 			var menuItem = getItem(currentOrder[i], menu);
