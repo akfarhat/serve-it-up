@@ -874,7 +874,6 @@ function getFeaturedItems(n) {
 			i--;
 		}
 	}
-	
 	return featuredItems;
 }
 

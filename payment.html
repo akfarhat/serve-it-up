@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,7 +24,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="order.css" rel="stylesheet">
+    <link href="payment.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -48,26 +49,15 @@
       </div>
     </div>
 	
-		<div id="searchContainer" class="container">
+		<div id="crumbContainer" class="container">
 			<div class="row">
 		<!-- Breadcrumbs
 		================================================== -->
 				<div class="col-md-8 pull-left">
 					<ol class="breadcrumb">
 						<li><a href="index.html">Main Menu</a></li>
-						<li class="active current-category">Entrees</li>
+						<li class="active current-category">Checkout</li>
 					</ol>
-				</div>
-		
-		<!-- Search
-		================================================== -->
-				<div class="col-md-4 pull-right">
-					<form name="search" action="order.html" method="get">
-						<div class="input-group">
-							<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-							<input type="text" name="searchQuery" id="searchInput" class="form-control" placeholder="Search ingredients or dish">
-						</div>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -75,38 +65,79 @@
 		<!-- Menu Items and Order
 		================================================= -->
 
-    <div id="menuContainer" class="container">
+    <div id="checkoutContainer" class="container">
 			<div class="row">
-				<div id="menuItemContainer" class="col-md-8">
+				<div id="orderItemContainer" class="col-md-8">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h3 class="panel-title current-category">Category</h3>
+							<h3 class="panel-title current-category">Order Details</h3>
 						</div>
-						<div id="menuListContainer" class="scrollable">
-							<ul id="accordion" class="list-group">
+						<div id="orderListContainer" class="scrollable">
+							<ul class="list-group">
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div id="orderContainer" class="col-md-4 pull-right">
+				<div id="paymentContainer" class="col-md-4 pull-right">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h3 class="panel-title">Your Order</h3>
+							<h3 class="panel-title">Payment Details</h3>
 						</div>
-						<div id="currentOrderContainer" class="scrollable">
-							<ul class="list-group">
-							</ul>
-						</div>
+						<div id="detailsContainer">
+              <div id="currentCust">
+                <h3 id="title">Current Customer</h3>
+                <h4 id="customer">John Doe</h4>
+              </div>
+              <div id="methodContainer">
+                <h3 id="title">Method Of Payment</h3>
+                <h4>
+                  <div class="radio col-md-offset-1">
+                    <label>
+                      <input type="radio" name="method" id="visaOption" value="Visa" checked>
+                      Visa Card
+                    </label>
+                  </div>
+                  <div class="radio col-md-offset-1">
+                    <label>
+                      <input type="radio" name="method" id="debitOption" value="Debit">
+                      Debit Card
+                    </label>
+                  </div>
+                  <div class="radio col-md-offset-1">
+                    <label>
+                      <input type="radio" name="method" id="cashOption" value="Cash">
+                      Cash
+                    </label>
+                  </div>
+                </h4>
+              </div>
+            
+							<div id="tipContainer">
+                <h3 id="title">Tip Amount</h3>
+                <h4>
+                  <div id="tipType" class="col-md-2 pull-left">
+                    <select id="tipType" class="selectpicker">
+                      <option>%</option>
+                      <option>$</option>
+                    </select>
+                  </div>
+                  <div id="tipAmount" class="input-group col-md-2 pull-right">
+                    <input type="" class="form-control" placeholder="15">
+                  </div>
+                </h4>    
+              </div>
+            </div>
 						<div class="panel-footer">
-							<div class="row">Total (taxes not included)</div>
+							<div class="row">Total (taxes + tip included)</div>
 							<div id="totalPrice" class="row">$0.00</div>
 							<div class="row">
-								<button type="button" id="placeOrderButton" class="btn btn-primary btn-lg btn-block">Place Order</button>
+								<button type="button" id="payNowButton" class="btn btn-primary btn-lg btn-block">Pay Now</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+    </div>
 	</div>
 
     <!-- Bootstrap core JavaScript
