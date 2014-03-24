@@ -116,13 +116,13 @@
                 <h3 id="title">Tip Amount</h3>
                 <h4>
                   <div id="tipType" class="col-md-2 pull-left">
-                    <select id="tipType" class="selectpicker">
+                    <select id="tipTypeVal" class="selectpicker">
                       <option>%</option>
                       <option>$</option>
                     </select>
                   </div>
                   <div id="tipAmount" class="input-group col-md-2 pull-right">
-                    <input type="" class="form-control" placeholder="15">
+                    <input id="tipAmountVal" type="number" min="0" class="form-control">
                   </div>
                 </h4>    
               </div>
@@ -143,14 +143,14 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	
 	<!-- My scripts
 	================================================== -->
-	<script type="application/javascript" charset="utf-8" src="menu.js"></script>
-	<script type="application/javascript" charset="utf-8" src="serveitup.js"></script>
+	<script src="menu.js"></script>
+	<script src="payment.js"></script>
 	<script type="text/javascript">
 		var selScrollable = '.scrollable, .ui-autocomplete';
 		// Uses document because document will be topmost level in bubbling
