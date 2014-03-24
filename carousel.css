@@ -14,7 +14,7 @@
 }
 
 body {
-	font-family: 'deliciousroman', Arial, sans-serif;
+  font-family: 'deliciousroman', Arial, sans-serif;
   padding-bottom: 40px;
   color: #5a5a5a;
 }
@@ -94,7 +94,7 @@ a:link, a:visited, a:hover {
 }
 
 .ui-autocomplete {
-    max-height: 150px;
+    max-height: 100px;
     overflow-y: auto;
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
