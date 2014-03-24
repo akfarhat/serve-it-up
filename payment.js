@@ -1,4 +1,4 @@
-function update() {
+function updatePrice() {
   var itemJSON = sessionStorage.getItem("currentOrder");
   
   //if there are items in the order then get them
@@ -28,10 +28,8 @@ function update() {
   }
 }
 
-$(document).ready(function() {	
-  tipType = $('#tipAmountVal').val(15);
-	
-	var menu = getMenu();
+function initialize()  {
+  var menu = getMenu();
   var itemJSON = sessionStorage.getItem("currentOrder");
   
   //if there are items in the order then get them
@@ -90,6 +88,9 @@ $(document).ready(function() {
     }
     
     total = total*1.13;
+    if(total === 0)
+      $('#payNowButton').prop('disabled', true);
+      
     var tip = parseFloat($('#tipAmountVal').val());
     var tipType = $('#tipTypeVal').val();
     
@@ -103,13 +104,23 @@ $(document).ready(function() {
     }
     
     $('#totalPrice').html(formatMoney(total));
-    
-    $('#tipAmountVal').on('change', function()  {
-      update();
-      });
-    $('#tipTypeVal').on('change', function()  {
-      update();
-      });
   }
+}
+
+$(document).ready(function() {	
+  tipType = $('#tipAmountVal').val(15);
+	
+	initialize();
+    
+  $('#tipAmountVal').on('change', function()  {
+    updatePrice();
+    });
+  $('#tipTypeVal').on('change', function()  {
+    updatePrice();
+    });
+  $('#payNowButton').on('click', function()  {
+    sessionStorage.clear();
+    initialize();
+    });      
 });
 

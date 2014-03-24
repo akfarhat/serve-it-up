@@ -142,7 +142,7 @@ a:link, a:visited, a:hover {
   max-height: 100px;
 }
 
-#menuItemContainer .item-name {
+#menuItemContainer .item-name, #orderContainer .item-name {
   font-weight: bold;
 }
 
@@ -164,6 +164,10 @@ a:link, a:visited, a:hover {
 
 #currentOrderContainer{
   height: 280px;
+}
+
+#currentOrderContainer .ul{
+  vertical-align: middle;
 }
 
 .scrollable {
