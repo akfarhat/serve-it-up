@@ -1,19 +1,4 @@
-﻿
-function formatMoney(money) {
-	if((typeof money == "string" || money instanceof String)) {
-		if(money.charAt(0) == '$') {
-			return money;
-		}
-		else {
-			return null;
-		}
-	}
-	else if (typeof money == "number"){
-		return '$' + money.toFixed(2);
-	}
-}
-
-function getUrlVar(key){
+﻿function getUrlVar(key){
 	var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search); 
 	if(result) {
 		return decodeURIComponent(result[1].split("+").join("%20")); 
@@ -63,7 +48,7 @@ function update() {
 			var orderItemHTML = '' +
 				'<li class="list-group-item">' +
 				    '<div class="row">' +
-					 '<div class="col-md-7">' + menuItem.name + '</div>' +
+					 '<div class="col-md-7 item-name">' + menuItem.name + '</div>' +
 					  '<div class="col-md-3">' + formatMoney(menuItem.price) + '</div>' +
 					  '<div class="col-md-2">' +
 					    '<button type="button" id="' + removeButtonID + '" class="btn">' +

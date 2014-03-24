@@ -938,6 +938,20 @@ function search (searchTerm) {
 	return searchResults;
 }
 
+function formatMoney(money) {
+	if((typeof money == "string" || money instanceof String)) {
+		if(money.charAt(0) == '$') {
+			return money;
+		}
+		else {
+			return null;
+		}
+	}
+	else if (typeof money == "number"){
+		return '$' + money.toFixed(2);
+	}
+}
+
 $('document').ready(function () {
 	$.widget( "custom.catcomplete", $.ui.autocomplete, {
 		_renderMenu: function( ul, items ) {

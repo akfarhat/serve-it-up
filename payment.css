@@ -111,6 +111,10 @@ a:link, a:visited, a:hover {
   height: 425px;
 }
 
+#orderListContainer .item-name {
+  font-weight: bold;
+}
+
 #paymentContainer {
   padding-left: 15px;	
 }
