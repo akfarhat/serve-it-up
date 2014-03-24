@@ -169,6 +169,18 @@ a:link, a:visited, a:hover {
   font-size: 200%;
 }
 
+#paymentModal {
+  padding-top: 20%;
+  padding-right: 50%;
+}
+
+#paymentModal .modal-body {
+    width: 275%;
+    font-size: 125%;
+    text-align: center;
+    background-color: #B8FFB8;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

@@ -1,10 +1,10 @@
 function updatePrice() {
-  var itemJSON = sessionStorage.getItem("currentOrder");
+  var itemJSON = sessionStorage.getItem("submittedItems");
+  var total = 0;
   
   //if there are items in the order then get them
   if(itemJSON){
     var menu = getMenu();
-    var total = 0;
     var items = JSON.parse(itemJSON);
     
     for (var i=0; i<items.length; i++) {
@@ -23,14 +23,26 @@ function updatePrice() {
         total += tip;
       }
     }
-    
-    $('#totalPrice').html(formatMoney(total));
   }
+    
+  $('#totalPrice').html(formatMoney(total));
+}
+
+function createModal()  {
+  $('#paymentModal').modal('show');
+
+    setTimeout(function() {
+      $("#paymentModal").modal('hide');
+      window.location = "index.html";
+    }, 10000);
 }
 
 function initialize()  {
+  $('#payNowButton').prop('disabled', true);
+  $('#tipAmountVal').val(15);
+
   var menu = getMenu();
-  var itemJSON = sessionStorage.getItem("currentOrder");
+  var itemJSON = sessionStorage.getItem("submittedItems");
   
   //if there are items in the order then get them
   if(itemJSON){
@@ -88,8 +100,6 @@ function initialize()  {
     }
     
     total = total*1.13;
-    if(total === 0)
-      $('#payNowButton').prop('disabled', true);
       
     var tip = parseFloat($('#tipAmountVal').val());
     var tipType = $('#tipTypeVal').val();
@@ -104,11 +114,11 @@ function initialize()  {
     }
     
     $('#totalPrice').html(formatMoney(total));
+    $('#payNowButton').prop('disabled', false);
   }
 }
 
-$(document).ready(function() {	
-  tipType = $('#tipAmountVal').val(15);
+$(document).ready(function() {
 	
 	initialize();
     
@@ -120,7 +130,9 @@ $(document).ready(function() {
     });
   $('#payNowButton').on('click', function()  {
     sessionStorage.clear();
-    initialize();
+    $('#orderItemContainer .list-group').empty();
+    updatePrice();
+    createModal();
     });      
 });
 
