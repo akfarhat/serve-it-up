@@ -195,6 +195,26 @@ a:link, a:visited, a:hover {
   text-align: center;
 }
 
+#assistanceModal, #helpModal {
+  padding-top: 20%;
+  padding-right: 50%;
+}
+
+.modal-body {
+  width: 275%;
+  font-size: 125%;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+#assistanceModal .modal-body{
+  background-color: #FF4545;
+}
+
+#helpModal .modal-body {
+  background-color: #3276b1;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

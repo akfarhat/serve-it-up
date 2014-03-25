@@ -169,16 +169,29 @@ a:link, a:visited, a:hover {
   font-size: 200%;
 }
 
-#paymentModal {
+#paymentModal, #assistanceModal, #helpModal {
   padding-top: 20%;
   padding-right: 50%;
 }
 
-#paymentModal .modal-body {
+.modal-body {
     width: 275%;
     font-size: 125%;
     text-align: center;
-    background-color: #B8FFB8;
+    color: #FFFFFF;
+}
+
+#paymentModal .modal-body {
+  background-color: #B8FFB8;
+  color: #000000;
+}
+
+#assistanceModal .modal-body{
+  background-color: #FF4545;
+}
+
+#helpModal .modal-body {
+  background-color: #3276b1;
 }
 
 /* RESPONSIVE CSS

@@ -8,7 +8,30 @@
 	}
 }
 
+function createModal(modalType)  {
+  if(modalType === "submit") {
+
+    $('#submitModal').modal('show');
+
+    setTimeout(function() {
+      $("#submitModal").modal('hide');
+      }, 10000);
+  }
+  else if(modalType === "assistance") {
+    $('#assistanceModal').modal('show');
+
+    setTimeout(function() {
+      $("#assistanceModal").modal('hide');
+      }, 10000);
+  } else if(modalType === "help")  {
+    $('#helpModal').modal('show');
+  }
+}
+
 function update() {
+  $('#placeOrderButton').prop('disabled', true);
+  $('#checkoutButton').prop('disabled', true);
+
 	var menu = getMenu();
 	var currentOrderContainer = $('#orderContainer ul').empty();
 	var submittedItemsJSON = sessionStorage.getItem('submittedItems');
@@ -34,6 +57,7 @@ function update() {
 		}
 		
 		if(submittedItems.length > 0) {
+      $('#checkoutButton').prop('disabled', false);
 			$('#checkoutButton').css('visibility','visible');
 		}
 	}
@@ -43,8 +67,6 @@ function update() {
     
     if(currentOrder.length > 0)
       $('#placeOrderButton').prop('disabled', false);
-    else
-      $('#placeOrderButton').prop('disabled', true);
 		
 		for (var i = 0; i < currentOrder.length; i++) {
 			var menuItem = getItem(currentOrder[i], menu);
@@ -332,9 +354,19 @@ $(document).ready(function() {
 			sessionStorage.removeItem('currentOrder');
 			update();
 		}
-		else {
-			alert("No menu items in order");
-		}
+    
+    createModal("submit");
 	});
+  
+  $('#checkoutButton').on('click', function(e)  {
+    window.location = "payment.html";
+  });
+  
+  $('#assistBtn').on('click', function (e) {
+    createModal("assistance");
+  });
+  $('#helpBtn').on('click', function (e) {
+    createModal("help");
+  });
 });
 

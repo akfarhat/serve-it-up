@@ -32,7 +32,7 @@
       <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top">
           <div class="navbar-header pull-left">
-            <button type="button" class="btn btn-danger btn-lg navbar-btn">
+            <button id="assistBtn" type="button" class="btn btn-danger btn-lg navbar-btn">
 							Waiter Assistance
 						</button>
           </div>
@@ -40,29 +40,13 @@
 						<div class="navbar-brand">ServeItUp</div>
           </div>
 					<div class="navbar-header pull-right">
-            <button type="button" id="helpButton" class="btn btn-lg navbar-btn" data-toggle="modal" data-target="#helpModal">
+            <button type="button" id="helpBtn" class="btn btn-lg navbar-btn">
 							<span class="glyphicon glyphicon-question-sign"></span> Help
 						</button>
           </div>
         </div>
       </div>
     </div>
-	
-	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h2>Help</h2>
-				</div>
-				<div class="modal-body">
-					To add an item to your order, simply click the + button beside the menu item.
-				</div>
-				<div class="modal-footer">
-					Click anywhere outside this box to dismiss it
-				</div>
-			</div>
-		</div>
-	</div>
 	
 		<div id="searchContainer" class="container">
 			<div class="row">
@@ -120,15 +104,67 @@
 								<button type="button" id="placeOrderButton" class="btn btn-primary btn-lg btn-block">Place Order</button>
 							</div>
 							<div class="row">
-								<a href="payment.html">
 									<button type="button" id="checkoutButton" class="btn btn-primary btn-lg btn-block">Checkout</button>
-								</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 	</div>
+  
+  <div id="submitModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <div>
+          <strong>Order Submitted!</strong>
+        </div>
+        <div>
+          <strong>Your order has been submitted and is currently being worked on.</strong>
+        </div>
+        <div>
+          <strong>A server will bring it out as soon as it is ready.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="assistanceModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <div>
+          <strong>Please Be Patient!</strong>
+        </div>
+        <div>
+          <strong>A waiter will soon be with you to assist and answer any questions you may have.</strong>
+        </div>
+        <div>
+          Thank you for using ServeItUp and have a great day!
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="helpModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <div>
+          <strong>To add an item to your order, simply click the '+' button beside the item.</strong>
+        </div>
+        <div>
+          <strong>To remove an item from your order, simply click the 'x' button beside the item.</strong>
+        </div>
+        <div>
+          <strong>To submit your order simply click the Place Order button.</strong>
+        </div>
+        <div>
+          <strong>To pay for your order simply click the Checkout button.</strong>
+        </div>
+        <div>
+          Click anywhere to dismiss this message
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
