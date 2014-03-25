@@ -51,11 +51,15 @@ a:link, a:visited, a:hover {
   border-color: #285e8e;
 }
 
-.navbar-wrapper .navbar-brand {
-	font-weight: bold;
-  font-size: 400%;
+.navbar-wrapper #brand-header {
   position: absolute;
-  width: 100%;
+  left: 50%;
+  margin-left: -123px;
+}
+
+.navbar-wrapper .navbar-brand {
+  font-size: 400%;
+	font-weight: bold;
   height: 100%;
   left: 0%;
   color:#FFFFFF;
