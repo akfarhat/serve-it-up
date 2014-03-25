@@ -163,6 +163,15 @@ a:link, a:visited, a:hover {
   border-top: 1px solid #ddd;
 }
 
+#filterContainer {
+  margin-top: 5px;
+}
+
+#filtersLabel {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
 #orderContainer {
   padding-left: 15px;	
 }

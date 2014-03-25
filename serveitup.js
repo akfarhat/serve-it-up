@@ -89,29 +89,9 @@ function update() {
 	$('#totalPrice').html(formatMoney(total));
 }
 
-$(document).ready(function() {
-	update();
-	
-	var menuListItems = [];
-	
-	if(getUrlVar('searchQuery')) {
-		menuListItems = search(getUrlVar('searchQuery'));
-		$('.current-category').html('Search Results for "' + getUrlVar('searchQuery') + '"');
-	}
-	else if(getUrlVar('selectedItem')) {
-		menuListItems = [getItem(getUrlVar('selectedItem'), menuItems)];
-		$('.current-category').html(getUrlVar('selectedItem'));
-	} 
-  else if(sessionStorage.getItem("category")) {
-    var menu = getMenu();
-    var category = sessionStorage.getItem("category");
-     
-    menuListItems = getCategoryItems(category, menu);
-    $('.current-category').html(menuCategories[category]);   
-	}
-	
+function displayMenuItems (menuListItems) {
 	var menuItemContainer = $('#menuItemContainer .list-group').empty();
-	
+
 	//sort menuListItems alphabetically by menu item name
 	menuListItems.sort(function (a, b) {
 		var aName = a.name.toLowerCase();
@@ -222,6 +202,104 @@ $(document).ready(function() {
 				};	
 		}(i));
 	}
+}
+
+function updateSearch (filters) {
+	if (!getUrlVar('searchQuery')) {
+		return;
+	}
+	
+	var menuListItems = search(getUrlVar('searchQuery'));
+	
+	var itemsToRemove = [];
+	
+	//Ridiculously confusing code that loops through each menu item and
+	//checks if any of the filters that are set match the menu item and
+	//removes the item from the list if it does
+	for (var i=0; i < menuListItems.length; i++) {
+		for (var j=0; j < filters.length; j++) {
+			if (!menuListItems[i][filters[j]]) {
+				itemsToRemove.push(menuListItems[i]);
+				break;
+			}
+		}
+	}
+	
+	for(var i=0; i < itemsToRemove.length; i++) {
+		var index = menuListItems.indexOf(itemsToRemove[i]);
+		if (index > -1) {
+			menuListItems.splice(index, 1);
+		}
+	}
+	
+	displayMenuItems(menuListItems);
+}
+
+$(document).ready(function() {
+	update();
+	
+	var menuListItems = [];
+	var isSearch = false;
+	var filters = [];
+	
+	if(getUrlVar('searchQuery')) {
+		menuListItems = search(getUrlVar('searchQuery'));
+		$('.current-category').html('Search Results for "' + getUrlVar('searchQuery') + '"');
+		isSearch = true;
+	}
+	else if(getUrlVar('selectedItem')) {
+		menuListItems = [getItem(getUrlVar('selectedItem'), menuItems)];
+		$('.current-category').html(getUrlVar('selectedItem'));
+	} 
+	else if(sessionStorage.getItem("category")) {
+		var menu = getMenu();
+		var category = sessionStorage.getItem("category");
+		 
+		menuListItems = getCategoryItems(category, menu);
+		$('.current-category').html(menuCategories[category]);   
+	}
+	
+	var menuItemContainer = $('#menuItemContainer .list-group').empty();
+	
+	//if this is a search then add the filter options
+	if(isSearch) {
+		var panelHeading = $('#menuItemContainer .panel-heading');
+	
+		var filtersHTML = '' +
+		'	<div id="filterContainer">' +
+		'	<span id="filtersLabel">Filters: </span>' +
+		'	<label class="checkbox-inline">' +
+		'		<input type="checkbox" id="vegetarianFilter" value="vegetarian"> Vegetarian' +
+		'	</label>' +
+		'	<label class="checkbox-inline">' +
+		'		<input type="checkbox" id="glutenFilter" value="gluten-free"> Gluten-free' +
+		'	</label>' +
+		'	<label class="checkbox-inline">' +
+		'		<input type="checkbox" id="lactoseFilter" value="lactose-free"> Lactose-free' +
+		'	</label>' +
+		'	<label class="checkbox-inline">' +
+		'		<input type="checkbox" id="nutFilter" value="nut-free"> Nut-free' +
+		'	</label>' +
+		'	</div>';
+		
+		panelHeading.append($.parseHTML(filtersHTML));
+		
+		$('.checkbox-inline input').on('change', function (e) {
+			if(this.checked) {
+				filters.push(this.value);
+			}
+			else if(filters.indexOf(this.value) !== -1){
+				filters.splice(filters.indexOf(this.value), 1);
+			}
+			
+			updateSearch(filters);
+		});
+	}
+	else {
+		$('#filterContainer').remove();
+	}
+	
+	displayMenuItems(menuListItems);
 	
 	$('#accordion').on('show.bs.collapse', function () {
 		$('#accordion .in').collapse('hide');
