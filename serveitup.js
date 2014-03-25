@@ -289,7 +289,6 @@ $(document).ready(function() {
 	
 		var filtersHTML = '' +
 		'	<div id="filterContainer">' +
-		'	<span id="filtersLabel">Filters: </span>' +
 		'	<label class="checkbox-inline">' +
 		'		<input type="checkbox" id="vegetarianFilter" value="vegetarian"> Vegetarian' +
 		'	</label>' +
@@ -305,6 +304,7 @@ $(document).ready(function() {
 		'	</div>';
 		
 		panelHeading.append($.parseHTML(filtersHTML));
+    $('#menuListContainer').css("height", "400px");
 		
 		$('.checkbox-inline input').on('change', function (e) {
 			if(this.checked) {
@@ -319,6 +319,7 @@ $(document).ready(function() {
 	}
 	else {
 		$('#filterContainer').remove();
+    $('#menuListContainer').css("height", "425px");
 	}
 	
 	displayMenuItems(menuListItems);
