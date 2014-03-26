@@ -8,7 +8,17 @@ function log (message) {
 }
 
 $('document').ready(function () {
-	
+	$('body').on('click', function (e) {
+		if($(e.target).is('body, .modal')) {
+			return;
+		}
+		var id = $(e.target).closest('a, .btn').attr('id') || 
+				 $(e.target).closest('a, .btn').attr('class') || 
+				 $(e.target).closest('a, .btn').attr('href');
+		var currentDate = '[' + new Date().toUTCString() + '] ';
+		log(currentDate + id + ' Clicked at position x:' + e.pageX + ' y: ' + e.pageY);
+	});
+	/*
 	$('#categoryContainer a').on('click', function (e) {
 		var id = 'Category: ' + this.innerHTML();
 		var currentDate = '[' + new Date().toUTCString() + '] ';
@@ -54,7 +64,6 @@ $('document').ready(function () {
 		}
 		var currentDate = '[' + new Date().toUTCString() + '] ';
 		log(currentDate + id + ' clicked at position x:' + e.pageX + ' y: ' + e.pageY);
-		
 	});
 	
 	$('#currentOrderContainer .btn, #currentOrderContainer .glyphicon').on('click', function (e) {
@@ -62,7 +71,7 @@ $('document').ready(function () {
 			var id = 'Remove button ' + e.target.id;
 		}
 		else {
-			var id = 'Duplicate: Add button ' + $(e.target).parent().attr('id');
+			var id = 'Duplicate: Remove button ' + $(e.target).parent().attr('id');
 		}
 			
 		var currentDate = '[' + new Date().toUTCString() + '] ';
@@ -82,4 +91,5 @@ $('document').ready(function () {
 		var currentDate = '[' + new Date().toUTCString() + '] ';
 		log(currentDate + id + ' clicked at position x:' + e.pageX + ' y: ' + e.pageY);
 	});
+	*/
 });

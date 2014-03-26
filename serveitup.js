@@ -38,35 +38,13 @@ function update() {
 	var currentOrderJSON = sessionStorage.getItem('currentOrder');
 	var total = 0;
 	
-	if(submittedItemsJSON) {
-		var submittedItems = JSON.parse(submittedItemsJSON);
-		
-		for (var i = 0; i < submittedItems.length; i++) {
-			var menuItem = getItem(submittedItems[i], menu);
-			
-			var submittedItemHTML = '' +
-				'<li class="list-group-item submitted-item">' +
-				'	<div class="row">' +
-				'		<div class="col-md-7">' + menuItem.name + '</div>' +
-				'		<div class="col-md-3">' + formatMoney(menuItem.price) + '</div>' +
-				'	</div>' +
-				'</li>';
-			
-			currentOrderContainer.append($.parseHTML(submittedItemHTML));
-			total += menuItem.price;
-		}
-		
-		if(submittedItems.length > 0) {
-      $('#checkoutButton').prop('disabled', false);
-			$('#checkoutButton').css('visibility','visible');
-		}
-	}
 	
 	if (currentOrderJSON) {
 		var currentOrder = JSON.parse(currentOrderJSON);
     
-    if(currentOrder.length > 0)
-      $('#placeOrderButton').prop('disabled', false);
+		if(currentOrder.length > 0) {
+			$('#placeOrderButton').prop('disabled', false);
+		}
 		
 		for (var i = 0; i < currentOrder.length; i++) {
 			var menuItem = getItem(currentOrder[i], menu);
@@ -105,6 +83,30 @@ function update() {
 					}
 				};	
 			}(i));
+		}
+	}
+	
+	if(submittedItemsJSON) {
+		var submittedItems = JSON.parse(submittedItemsJSON);
+		
+		for (var i = 0; i < submittedItems.length; i++) {
+			var menuItem = getItem(submittedItems[i], menu);
+			
+			var submittedItemHTML = '' +
+				'<li class="list-group-item submitted-item">' +
+				'	<div class="row">' +
+				'		<div class="col-md-7">' + menuItem.name + '</div>' +
+				'		<div class="col-md-3">' + formatMoney(menuItem.price) + '</div>' +
+				'	</div>' +
+				'</li>';
+			
+			currentOrderContainer.append($.parseHTML(submittedItemHTML));
+			total += menuItem.price;
+		}
+		
+		if(submittedItems.length > 0) {
+			$('#checkoutButton').prop('disabled', false);
+			$('#checkoutButton').css('visibility','visible');
 		}
 	}
 	

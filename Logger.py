@@ -21,11 +21,13 @@ class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		content_len = int(self.headers.getheader('content-length'))
 		message = self.rfile.read(content_len)
 		self.saveFile.write(message + '\n')
-		print message;self.send_response(200)
-
-		self.send_header("Content-type", "text/plain")
-		self.end_headers()
-		self.wfile.write("Done!n")
+		print message
+		try:
+			self.send_response(200)
+			self.send_header("Content-type", "text/plain")
+			self.end_headers()
+		except:
+			pass
 		return
 
     def log_message(self, format, *args):
