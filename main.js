@@ -50,7 +50,7 @@ $(document).ready(function() {
 				var categoryHTML = '' + 
 					'<div class="col-md-2 col-md-offset-1 category">' +
 					'   <a id="' + buttonID + '" href="order.html">' +
-					'		<button class="btn btn-default btn-block">' +
+					'		<button id="' + key + ' category" class="btn btn-default btn-block">' +
 								categories[key] 
 					'		</button>' +
 					'	</a>' + 

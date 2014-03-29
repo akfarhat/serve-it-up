@@ -10,28 +10,28 @@ PORT = 8000
 
 class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
-    def __init__(self, request, client_address, server):
-		self.saveFile = open(sys.argv[1] + '.txt','a')
-		SimpleHTTPServer.SimpleHTTPRequestHandler.__init__(self, request,client_address, server)
-	
-    def do_GET(self):
-        SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
+  def __init__(self, request, client_address, server):
+    self.saveFile = open(sys.argv[1] + '.txt','a')
+    SimpleHTTPServer.SimpleHTTPRequestHandler.__init__(self, request,client_address, server)
 
-    def do_POST(self):
-		content_len = int(self.headers.getheader('content-length'))
-		message = self.rfile.read(content_len)
-		self.saveFile.write(message + '\n')
-		print message
-		try:
-			self.send_response(200)
-			self.send_header("Content-type", "text/plain")
-			self.end_headers()
-		except:
-			pass
-		return
+  def do_GET(self):
+      SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
 
-    def log_message(self, format, *args):
-        return
+  def do_POST(self):
+    content_len = int(self.headers.getheader('content-length'))
+    message = self.rfile.read(content_len)
+    self.saveFile.write(message + '\n')
+    print message
+    try:
+      self.send_response(200)
+      self.send_header("content-type", "text/plain")
+      self.end_headers()
+    except:
+      pass
+    return
+
+  def log_message(self, format, *args):
+     return
 			
 	
 Handler = ServerHandler

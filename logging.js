@@ -16,7 +16,7 @@ $('document').ready(function () {
 				 $(e.target).closest('a, .btn').attr('class') || 
 				 $(e.target).closest('a, .btn').attr('href');
 		var currentDate = '[' + new Date().toUTCString() + '] ';
-		log(currentDate + id + ' Clicked at position x:' + e.pageX + ' y: ' + e.pageY);
+		log(currentDate + id + ' clicked at position x:' + e.pageX + ' y: ' + e.pageY);
 	});
 	/*
 	$('#categoryContainer a').on('click', function (e) {
